@@ -13,5 +13,6 @@
           - vim
           - htop
           - iotop
+          - base-devel
       become: yes
       become_method: su
