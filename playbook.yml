@@ -1,0 +1,17 @@
+---
+- hosts: ancalagon
+  tasks:
+
+    - name: Install core development packages
+      pacman:
+        name:
+          - python
+          - python2
+          - sudo
+          - git
+          - emacs
+          - vim
+          - htop
+          - iotop
+      become: yes
+      become_method: su
