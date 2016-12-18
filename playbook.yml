@@ -16,3 +16,18 @@
           - base-devel
       become: yes
       become_method: su
+
+    - name: Configure sudo
+      lineinfile: "dest=/etc/sudoers state=present regexp='^pythonnut' line='pythonnut ALL=(ALL) NOPASSWD: ALL'"
+      become: yes
+      become_method: su
+
+    - name: Create AUR directory
+      file: path=/home/pythonnut/AUR state=directory
+
+    - name: Install package-query from AUR
+      aur: name=package-query user=pythonnut dir=~/AUR
+
+    - name: Install yaourt from AUR
+      aur: name=yaourt user=pythonnut dir=~/AUR
+
